@@ -37,23 +37,23 @@ function two_host() {
 
 function error(err) {
   elem_status = document.getElementById('status')
-  var str = 'Ошибка: '
+  var str = 'Error: '
 
   switch(err) {
     case 'auth_ip_empty':
-      str += 'IP Virtualbox не заполнен'
+      str += 'IP Virtualbox is not full'
     break;
 
     case 'auth_ip_incorrect':
-      str += 'IP Virtualbox некоректен'
+      str += 'IP Virtualbox is incorrect'
     break;
 
     case 'auth_username_empty':
-      str += 'имя пользователя Virtualbox не заполнено'
+      str += 'Virtualbox username is blank'
     break;
 
     case 'auth_password_empty':
-      str += 'пароль Virtualbox не заполнен'
+      str += 'Virtualbox password is not filled'
     break;
   }
 
@@ -61,7 +61,7 @@ function error(err) {
 }
 
 function status(message) {
-  document.getElementById('status').innerHTML = 'Статус: ' + message;
+  document.getElementById('status').innerHTML = 'Status: ' + message;
 }
 
 function clear_error() {
@@ -102,7 +102,7 @@ function onlyUnique(value, index, self) {
 }
 
 function usernames_loading(){
-  document.getElementById('usernames').value = "loading...";
+  document.getElementById('usernames').value = "Loading...";
 }
 
 function usernames_clear(){
@@ -124,7 +124,7 @@ function users_to_usernames(){
   var idssorted =  Object.create(ids);
   cachekey = idssorted.sort().join();
   users_update(ids);
-  status('загружается список пользователей')
+  status('The list of users is loaded')
   usernames_loading();
   if (ids.length > 0){
     var steamids = ids.join();
@@ -143,7 +143,7 @@ function users_to_usernames(){
         },
         error: function(data){
           usernames_clear();
-          error("таймаут, проверьте соединение и попробуйте еще раз");
+          error("Timeout, check connection and try again");
         },
         timeout: 3000
       });
@@ -165,7 +165,7 @@ function process_steam_players(data, ids){
         }
       });
     }
-    status('пользователи успешно загружены')
+    status('Users loaded successfully')
   }
 }
 
@@ -212,7 +212,7 @@ function update(){
   if (auth_check() == 'OK') {
     auth_save(auth_ip, auth_username, auth_password);
 
-    document.getElementById('status').innerHTML = 'Статус: обновление правил'
+    document.getElementById('status').innerHTML = 'Status: Rules update'
 
     var remove = 'count=$(iptables -L | grep "27000:27200" | wc -l)\nfor ((i = 0; i < count; i++))\ndo\niptables -D FORWARD 1\ndone'
     var iptables
@@ -240,7 +240,7 @@ function update(){
       ssh.execCommand(update_cmd, { cwd:ssh_cwd }).then(function(result) {
         log.info('UPDATE STDOUT:\n' + result.stdout);
         log.info('UPDATE STDERR:\n' + result.stderr);
-        document.getElementById('status').innerHTML = 'Статус: правила обновлены'
+        document.getElementById('status').innerHTML = 'Status: Rules updated'
       })
     })
   }
@@ -250,7 +250,7 @@ function remove() {
   if (auth_check() == 'OK') {
     auth_save(auth_ip, auth_username, auth_password);
 
-    document.getElementById('status').innerHTML = 'Статус: удаление правил'
+    document.getElementById('status').innerHTML = 'Status: Deleting rules'
 
     var command = btoa('count=$(iptables -L | grep "27000:27200" | wc -l)\nfor ((i = 0; i < count; i++))\ndo\niptables -D FORWARD 1\ndone')
 
@@ -265,7 +265,7 @@ function remove() {
       ssh.execCommand(ssh_root, { cwd:ssh_cwd }).then(function(result) {
         log.info('REMOVE STDOUT:\n' + result.stdout);
         log.info('REMOVE STDERR:\n' + result.stderr);
-        document.getElementById('status').innerHTML = 'Статус: правила удалены'
+        document.getElementById('status').innerHTML = 'Status: Rules deleted'
       })
     })
   }
