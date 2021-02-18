@@ -13,23 +13,23 @@
     <div class="container">
       <div class="ssh">
           <div id="Vbox" class="header">Virtualbox</div>
-          <div id="Host1" class="header">Хост 1</div>
-          <div id="Host2" class="header">Хост 2</div>
+          <div id="Host1" class="header">Host 1</div>
+          <div id="Host2" class="header">Host 2</div>
 
           <div class="auth">
             <label for="auth.ip">IP</label>
-            <input type="text" id="auth.ip" value="10.66.66.1">
+            <input type="text" id="auth.ip" value="Enter IP">
 
-            <label for="auth.username">Имя пользователя</label>
+            <label for="auth.username">Username</label>
             <input type="text" id="auth.username">
 
-            <label for="auth.password">Пароль</label>
+            <label for="auth.password">Password</label>
             <input type="password" id="auth.password">
           </div>
 
           <div class="host1">
             <label for="host1.ip">IP</label>
-            <input type="text" id="host1.ip" value="10.66.66.2">
+            <input type="text" id="host1.ip" value="Enter Host 1 IP">
             <div id="host1.text" style="display: none;">SteamID</div>
             <textarea id="host1.id" style="display: none;" maxlength="17"></textarea>
           </div>
@@ -37,7 +37,7 @@
           <div class="host2" id="host2">
             <div id="host2.text" style="display: none;">
               <label for="host2.ip">IP</label>
-              <input type="text" id="host2.ip" value="10.66.66.3">
+              <input type="text" id="host2.ip" value="Enter Host 2 IP">
             </div>
             <div>SteamID</div>
             <textarea id="host2.id" maxlength="17"></textarea>
@@ -46,16 +46,16 @@
 
       <div class="rules">
         <div class="steamid">
-          <div style="margin-left: 11px;">SteamID других игроков (Usernames игроков справа, обновляются автоматически)</div>
+          <div style="margin-left: 11px;">SteamID other players (Usernames players on the right are updated automatically)</div>
           <textarea id="users" class="text"></textarea>
           <textarea id="usernames" class="text" readonly="true"></textarea>
         </div>
         
         <div class="buttons">
-          <button id="update">Обновить правила</button>
-          <button id="remove">Удалить правила</button>
-          <button id="two.pc" class="right">2 ПК</button>
-          <button id="one.pc" class="right">1 ПК</button>
+          <button id="update">Update rules</button>
+          <button id="remove">Delete rules</button>
+          <button id="two.pc" class="right">2 PC</button>
+          <button id="one.pc" class="right">1 PC</button>
         </div>
 
         <div class="status">
