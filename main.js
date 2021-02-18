@@ -41,9 +41,9 @@ app.whenReady().then(() => {
     showSearchWithGoogle: false,
     showInspectElement: false,
     labels: {
-      cut: 'Вырезать',
-      copy: 'Копировать',
-      paste: 'Вставить',
+      cut: 'Cut',
+      copy: 'Copy',
+      paste: 'Pase',
     }
   })
 })
